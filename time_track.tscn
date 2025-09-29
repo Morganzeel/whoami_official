@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://by1pkqup0drfr"]
+
+[ext_resource type="Script" uid="uid://cl5v8rxy487yh" path="res://resources/scenes/time_track.gd" id="1_5qrtp"]
+[ext_resource type="FontFile" uid="uid://236eodmagxce" path="res://Samuel Morse.otf" id="2_xp806"]
+[ext_resource type="Texture2D" uid="uid://qkond46o0d05" path="res://night-sleep.png" id="3_7hm8j"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vrtrv"]
+font = ExtResource("2_xp806")
+font_size = 64
+
+[node name="TimeTrack" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_5qrtp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = -1668.0
+offset_top = -901.0
+offset_right = -1164.0
+offset_bottom = -614.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="DayName" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "FillerText"
+label_settings = SubResource("LabelSettings_vrtrv")
+vertical_alignment = 1
+
+[node name="DateNum" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "FillerText"
+label_settings = SubResource("LabelSettings_vrtrv")
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("3_7hm8j")

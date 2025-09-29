@@ -1,0 +1,98 @@
+[gd_scene load_steps=7 format=3 uid="uid://b5jnqygxvwthl"]
+
+[ext_resource type="Texture2D" uid="uid://cgaysk1sfbla3" path="res://textures/hack-813290_1280.jpg" id="1_kh7i1"]
+[ext_resource type="Texture2D" uid="uid://dkqye680r2mb5" path="res://textures/folder.png" id="2_63uu6"]
+[ext_resource type="Texture2D" uid="uid://bii7qumbwfwgm" path="res://textures/cancel64.png" id="2_ge7yw"]
+[ext_resource type="Texture2D" uid="uid://bf52qhknrsxp5" path="res://textures/shodown.png" id="3_ge7yw"]
+[ext_resource type="FontFile" uid="uid://236eodmagxce" path="res://Samuel Morse.otf" id="5_gjdp3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pp8s3"]
+font = ExtResource("5_gjdp3")
+font_size = 48
+
+[node name="Computer" type="Node"]
+
+[node name="Desktop" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1680.0
+offset_bottom = 920.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Desktop"]
+clip_contents = true
+layout_mode = 0
+offset_right = 1680.0
+offset_bottom = 920.0
+
+[node name="TextureRect" type="TextureRect" parent="Desktop/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_kh7i1")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Desktop/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VboxContainer" type="VBoxContainer" parent="Desktop/MarginContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Desktop/MarginContainer/MarginContainer2/VboxContainer"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Desktop/MarginContainer/MarginContainer2/VboxContainer/HBoxContainer"]
+modulate = Color(1, 1, 1, 0.509804)
+custom_minimum_size = Vector2(16, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.219501, 0.219501, 0.219501, 1)
+
+[node name="HboxContainer" type="HBoxContainer" parent="Desktop/MarginContainer/MarginContainer2/VboxContainer"]
+layout_mode = 2
+
+[node name="Folder" type="GridContainer" parent="Desktop/MarginContainer/MarginContainer2/VboxContainer/HboxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Desktop/MarginContainer/MarginContainer2/VboxContainer/HboxContainer/Folder"]
+layout_mode = 2
+texture = ExtResource("2_63uu6")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="Desktop/MarginContainer/MarginContainer2/VboxContainer/HboxContainer/Folder"]
+layout_mode = 2
+text = "Texting"
+horizontal_alignment = 1
+
+[node name="Shodown" type="GridContainer" parent="Desktop/MarginContainer/MarginContainer2/VboxContainer/HboxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Desktop/MarginContainer/MarginContainer2/VboxContainer/HboxContainer/Shodown"]
+layout_mode = 2
+texture = ExtResource("3_ge7yw")
+
+[node name="Label" type="Label" parent="Desktop/MarginContainer/MarginContainer2/VboxContainer/HboxContainer/Shodown"]
+layout_mode = 2
+text = "ShoDown"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Desktop"]
+layout_mode = 2
+offset_left = 1596.0
+offset_top = 20.0
+offset_right = 1660.0
+offset_bottom = 84.0
+texture = ExtResource("2_ge7yw")
+
+[node name="Label" type="Label" parent="Desktop"]
+layout_mode = 0
+offset_left = 590.0
+offset_top = 28.0
+offset_right = 1090.0
+offset_bottom = 78.0
+text = "TestText"
+label_settings = SubResource("LabelSettings_pp8s3")
+horizontal_alignment = 1
+vertical_alignment = 2
