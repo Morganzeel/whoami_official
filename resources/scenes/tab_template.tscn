@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://jm2neqqvljom"]
+
+[ext_resource type="Texture2D" uid="uid://q0nmv0kf658c" path="res://textures/sailnet.png" id="1_ltbd2"]
+[ext_resource type="FontFile" uid="uid://236eodmagxce" path="res://fonts/Samuel Morse.otf" id="2_j15n0"]
+[ext_resource type="Texture2D" uid="uid://bj5dwt8nugvdr" path="res://textures/cancel16.png" id="3_bby8b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rafe5"]
+bg_color = Color(0.282353, 0.282353, 0.282353, 0.345098)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rafe5"]
+font = ExtResource("2_j15n0")
+font_size = 20
+
+[node name="Tab_Template" type="MarginContainer"]
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rafe5")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_right = 5
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 3
+
+[node name="ProgramIcon" type="TextureRect" parent="PanelContainer/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+texture_filter = 1
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+texture = ExtResource("1_ltbd2")
+expand_mode = 2
+
+[node name="ProgramName" type="Label" parent="PanelContainer/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+text = "ShoDown"
+label_settings = SubResource("LabelSettings_rafe5")
+
+[node name="KillTab" type="TextureRect" parent="PanelContainer/MarginContainer/GridContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_bby8b")
+stretch_mode = 2

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://fkfxwj0efbkn"]
 
-[ext_resource type="FontFile" uid="uid://236eodmagxce" path="res://Samuel Morse.otf" id="1_16ep0"]
+[ext_resource type="FontFile" uid="uid://236eodmagxce" path="res://fonts/Samuel Morse.otf" id="1_16ep0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_q1erv"]
 font = ExtResource("1_16ep0")
@@ -14,22 +14,25 @@ bg_color = Color(0.728822, 0.728822, 0.728822, 1)
 LineEdit/styles/normal = SubResource("StyleBoxFlat_16ep0")
 
 [sub_resource type="SystemFont" id="SystemFont_54sve"]
+subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_543ld"]
 font = SubResource("SystemFont_54sve")
-font_size = 20
+font_size = 32
 font_color = Color(0, 0, 0, 1)
 
-[node name="ShoDown" type="Node"]
+[node name="ShoDown" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 offset_right = 1680.0
 offset_bottom = 920.0
-grow_horizontal = 2
-grow_vertical = 2
 color = Color(0.873298, 0.873298, 0.873298, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
 offset_right = 1680.0
 offset_bottom = 920.0
 theme_override_constants/margin_top = 150
@@ -51,26 +54,27 @@ label_settings = SubResource("LabelSettings_q1erv")
 horizontal_alignment = 1
 
 [node name="LineEdit" type="LineEdit" parent="MarginContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme = SubResource("Theme_xdr8s")
 placeholder_text = "Search"
 alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
-custom_minimum_size = Vector2(500, 300)
+custom_minimum_size = Vector2(800, 300)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/margin_top = 200
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/MarginContainer"]
-custom_minimum_size = Vector2(500, 300)
+custom_minimum_size = Vector2(800, 300)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer/ScrollContainer"]
-custom_minimum_size = Vector2(450, 0)
+custom_minimum_size = Vector2(450, 50)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6

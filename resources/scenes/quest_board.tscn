@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://ix55ogx25jvy"]
+
+[ext_resource type="FontFile" uid="uid://236eodmagxce" path="res://fonts/Samuel Morse.otf" id="1_6ear3"]
+[ext_resource type="Script" uid="uid://bvptqe6c1x1yj" path="res://resources/scripts/quest_board_container.gd" id="1_8r2i5"]
+[ext_resource type="Script" uid="uid://0cwdelt17wqi" path="res://resources/scripts/questboard.gd" id="1_wik8w"]
+[ext_resource type="PackedScene" uid="uid://bwakenhsw1da2" path="res://resources/scenes/request_template.tscn" id="2_8r2i5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3ceph"]
+font = ExtResource("1_6ear3")
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_8r2i5"]
+font_size = 32
+
+[node name="QuestBoard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wik8w")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 1680.0
+offset_bottom = 920.0
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+color = Color(0.156863, 0.196078, 0.235294, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 50
+
+[node name="QuestBoardContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 10
+script = ExtResource("1_8r2i5")
+
+[node name="RequestBoardLabel" type="Label" parent="MarginContainer/MarginContainer/QuestBoardContainer"]
+layout_mode = 2
+text = "R e q u e s t   B o a r d"
+label_settings = SubResource("LabelSettings_3ceph")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RequestTemplate" parent="MarginContainer/MarginContainer/QuestBoardContainer" instance=ExtResource("2_8r2i5")]
+layout_mode = 2
+
+[node name="TestLabel" type="Label" parent="MarginContainer/MarginContainer/QuestBoardContainer"]
+layout_mode = 2
+text = "SIGNAL TEST"
+label_settings = SubResource("LabelSettings_8r2i5")
+
+[connection signal="QuestCompletion" from="MarginContainer/MarginContainer/QuestBoardContainer/RequestTemplate" to="MarginContainer/MarginContainer/QuestBoardContainer" method="_on_request_template_quest_completion"]

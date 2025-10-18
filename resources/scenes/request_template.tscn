@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://bwakenhsw1da2"]
+
+[ext_resource type="Texture2D" uid="uid://cp5yg50okk3tt" path="res://textures/character.png" id="1_70m4m"]
+[ext_resource type="Script" uid="uid://hx6ahj2hop7o" path="res://resources/scripts/request_template.gd" id="1_71v51"]
+[ext_resource type="FontFile" uid="uid://236eodmagxce" path="res://fonts/Samuel Morse.otf" id="2_7tuya"]
+[ext_resource type="Texture2D" uid="uid://ba2184gdxubny" path="res://textures/quests_icon.png" id="3_731ll"]
+[ext_resource type="Script" uid="uid://d0qr516yef0cy" path="res://resources/scripts/submit_request.gd" id="5_q823b"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_38mwx"]
+font = ExtResource("2_7tuya")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_2xphb"]
+font = ExtResource("2_7tuya")
+font_size = 32
+
+[node name="MarginContainer" type="MarginContainer"]
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_right = 40
+script = ExtResource("1_71v51")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_70m4m")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Client Name: John Doe"
+label_settings = SubResource("LabelSettings_38mwx")
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Target: Smthsmth.nnet"
+label_settings = SubResource("LabelSettings_2xphb")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_731ll")
+script = ExtResource("5_q823b")
+
+[connection signal="gui_input" from="VBoxContainer/HBoxContainer/HBoxContainer/TextureRect" to="." method="_on_texture_rect_gui_input"]
