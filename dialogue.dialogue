@@ -1,0 +1,45 @@
+~ start
+Nathan: [[Hi|Hello|Howdy]], I'm Nathan.
+Coco: Hi, I'm Coco.
+Nathan: What is your favourite food?
+$> favourite_food = ask_for_string()
+Coco: My favourite food is {{favourite_food}}.
+Nathan: Ok, if you can guess the number I'm thinking of you can have some {{favourite_food}}.
+Coco: Ok.
+$> correct_answer = roll_dice(10)
+Nathan: Guess a number between 1 and 10, inclusive.
+~ guessing
+$> guess = ask_for_number()
+if guess_is_number
+	Coco: Is it {{guess}}?
+else
+	Coco: What did I have to do again?
+	Nathan: Guess a number between 1 and 10, inclusive.
+	=> guessing
+
+if guess == correct_answer
+	if tries == 1
+		Nathan: Wow! You got it on your first try!
+	else
+		Nathan: You guessed it in {{tries}} tries.
+elif guess > correct_answer
+	Nathan: Nope. It's less than {{guess}}. Try again.
+	=> guessing
+else
+	Nathan: Nope. It's higher than {{guess}}. Try again.
+	=> guessing
+Nathan: Well done! You can go enjoy some {{favourite_food}}.
+Nathan: Do you want to play again?
+- Sure thing!
+	$> correct_answer = roll_dice(10)
+	Nathan: Guess a number between 1 and 10, inclusive.
+	$> tries = 0
+	=> guessing
+- Only if the number is {{correct_answer}} again
+	Coco: Only if the number is {{correct_answer}} again.
+	Nathan: That seems too easy but Ok. Guess a number between 1 and 10, inclusive.
+	$> tries = 0
+	=> guessing
+- No thanks
+	Coco: No thanks.
+=> END

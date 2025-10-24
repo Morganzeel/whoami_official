@@ -1,5 +1,7 @@
 extends Control
 
+signal QuestBoardState
+
 var days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 @onready var DateNum = %DateNum
 @onready var DayName = %DayName
@@ -31,3 +33,8 @@ func update_day_tracker():
 func update_time():
 	DayName.text = str(days[Globals.DayNameTracker])
 	DateNum.text = str("Date: " + str(Globals.day) + "/" + str(Globals.month))
+
+
+func _on_quest_icon_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed:
+		QuestBoardState.emit()

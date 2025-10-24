@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpbjbwxya0jpk"]
+
+[ext_resource type="PackedScene" uid="uid://b53xnu43i55qo" path="res://resources/scenes/contact_template.tscn" id="1_xdiup"]
+
+[node name="TextingApp" type="MarginContainer"]
+offset_right = 359.0
+offset_bottom = 667.0
+
+[node name="TextAppBackground" type="ColorRect" parent="."]
+show_behind_parent = true
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_top = 30
+
+[node name="Texting" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="ScrollContainer" parent="MarginContainer/Texting"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Texting/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+
+[node name="ContactTemplate" parent="MarginContainer/Texting/MarginContainer/VBoxContainer" instance=ExtResource("1_xdiup")]
+layout_mode = 2

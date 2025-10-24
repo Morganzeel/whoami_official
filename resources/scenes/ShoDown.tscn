@@ -4,7 +4,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_q1erv"]
 font = ExtResource("1_16ep0")
-font_size = 128
+font_size = 256
 font_color = Color(0.666667, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_16ep0"]
@@ -24,17 +24,19 @@ font_color = Color(0, 0, 0, 1)
 [node name="ShoDown" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+offset_right = 3360.0
+offset_bottom = 1840.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_right = 1680.0
-offset_bottom = 920.0
+offset_right = 3360.0
+offset_bottom = 1840.0
 color = Color(0.873298, 0.873298, 0.873298, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
-offset_right = 1680.0
-offset_bottom = 920.0
+offset_right = 3360.0
+offset_bottom = 1840.0
 theme_override_constants/margin_top = 150
 
 [node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer"]

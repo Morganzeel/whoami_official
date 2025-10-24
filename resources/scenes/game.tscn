@@ -1,17 +1,36 @@
-[gd_scene load_steps=6 format=3 uid="uid://cnq8sjwxxuaax"]
+[gd_scene load_steps=12 format=3 uid="uid://cnq8sjwxxuaax"]
 
 [ext_resource type="Script" uid="uid://b0cts364rt4rl" path="res://resources/scripts/game.gd" id="1_8oqg3"]
 [ext_resource type="Texture2D" uid="uid://dra4ofn7gkeaq" path="res://textures/room_bg.png" id="2_eo0ot"]
+[ext_resource type="Script" uid="uid://bo1tncypk0iy5" path="res://resources/scripts/state_node.gd" id="2_sdnvf"]
 [ext_resource type="PackedScene" uid="uid://bpmmhi3yaqe81" path="res://resources/scenes/phone.tscn" id="3_42bqs"]
-[ext_resource type="Script" uid="uid://6g8vfuuts8w1" path="res://resources/scripts/computer_click_detect.gd" id="3_eo0ot"]
-[ext_resource type="PackedScene" uid="uid://by1pkqup0drfr" path="res://time_track.tscn" id="5_42bqs"]
+[ext_resource type="Script" uid="uid://bs7tro0sekuvl" path="res://resources/scripts/room.gd" id="3_wo7c5"]
+[ext_resource type="Script" uid="uid://drugr6qgy0x4h" path="res://resources/scripts/computer_click_detect.gd" id="4_42bqs"]
+[ext_resource type="Script" uid="uid://cgtmn5mpnurdm" path="res://resources/scripts/displaying.gd" id="4_sdnvf"]
+[ext_resource type="PackedScene" uid="uid://by1pkqup0drfr" path="res://resources/scenes/time_track.tscn" id="5_42bqs"]
+[ext_resource type="Script" uid="uid://bft6t1ow5osyj" path="res://resources/scripts/computer_state.gd" id="5_wo7c5"]
+[ext_resource type="PackedScene" uid="uid://b5jnqygxvwthl" path="res://resources/scenes/computer.tscn" id="6_gcd3b"]
+[ext_resource type="PackedScene" uid="uid://ix55ogx25jvy" path="res://resources/scenes/quest_board.tscn" id="7_kf1vy"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_8oqg3")
 
+[node name="StateNode" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_sdnvf")
+initial_state = NodePath("RoomState")
+
+[node name="RoomState" type="Node" parent="StateNode"]
+script = ExtResource("3_wo7c5")
+
+[node name="QuestBoardState" type="Node" parent="StateNode"]
+script = ExtResource("4_sdnvf")
+
+[node name="ComputerState" type="Node" parent="StateNode"]
+script = ExtResource("5_wo7c5")
+
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(-12, -99)
-scale = Vector2(1.66895, 0.982422)
+position = Vector2(-17, -118)
+scale = Vector2(1.65845, 1.01465)
 texture = ExtResource("2_eo0ot")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -25,7 +44,29 @@ offset_top = -104.0
 offset_right = -111.0
 offset_bottom = 307.0
 color = Color(1, 1, 1, 0)
-script = ExtResource("3_eo0ot")
+script = ExtResource("4_42bqs")
 
 [node name="TimeTrack" parent="." instance=ExtResource("5_42bqs")]
 unique_name_in_owner = true
+
+[node name="DisplayOver" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = -1680.0
+offset_top = -920.0
+offset_right = 1680.0
+offset_bottom = 920.0
+
+[node name="QuestBoard" parent="DisplayOver" instance=ExtResource("7_kf1vy")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Computer" parent="DisplayOver" instance=ExtResource("6_gcd3b")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[connection signal="gui_input" from="ComputerClickDetect" to="StateNode/RoomState" method="_on_computer_click_detect_gui_input"]
+[connection signal="QuestBoardState" from="TimeTrack" to="StateNode/RoomState" method="_on_time_track_quest_board_state"]
+[connection signal="ShutDown" from="DisplayOver/Computer" to="StateNode/ComputerState" method="_on_computer_shut_down"]

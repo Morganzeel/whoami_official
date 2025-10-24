@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://b53xnu43i55qo"]
+
+[ext_resource type="Texture2D" uid="uid://cp5yg50okk3tt" path="res://textures/character.png" id="1_3jja2"]
+
+[sub_resource type="Theme" id="Theme_vsimv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_th6ti"]
+font_size = 48
+
+[node name="ContactTemplate" type="MarginContainer"]
+theme_override_constants/margin_right = 30
+
+[node name="ContactIcon" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_3jja2")
+stretch_mode = 2
+
+[node name="ContactName" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = SubResource("Theme_vsimv")
+text = "Nathan"
+label_settings = SubResource("LabelSettings_th6ti")
+horizontal_alignment = 2

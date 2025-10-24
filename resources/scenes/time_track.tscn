@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://by1pkqup0drfr"]
+[gd_scene load_steps=6 format=3 uid="uid://by1pkqup0drfr"]
 
 [ext_resource type="Script" uid="uid://cl5v8rxy487yh" path="res://resources/scripts/time_track.gd" id="1_5qrtp"]
 [ext_resource type="FontFile" uid="uid://236eodmagxce" path="res://fonts/Samuel Morse.otf" id="2_xp806"]
 [ext_resource type="Texture2D" uid="uid://qkond46o0d05" path="res://night-sleep.png" id="3_7hm8j"]
 [ext_resource type="Texture2D" uid="uid://ba2184gdxubny" path="res://textures/quests_icon.png" id="4_5qrtp"]
-[ext_resource type="Script" uid="uid://bi1j0avrjtckl" path="res://resources/scripts/quest_icon.gd" id="5_gcf1v"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vrtrv"]
 font = ExtResource("2_xp806")
@@ -56,7 +55,6 @@ texture = ExtResource("3_7hm8j")
 [node name="QuestIcon" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("4_5qrtp")
-script = ExtResource("5_gcf1v")
 
 [connection signal="gui_input" from="VBoxContainer/HBoxContainer/SleepIcon" to="." method="_on_sleep_icon_gui_input"]
-[connection signal="gui_input" from="VBoxContainer/HBoxContainer/QuestIcon" to="VBoxContainer/HBoxContainer/QuestIcon" method="_on_gui_input"]
+[connection signal="gui_input" from="VBoxContainer/HBoxContainer/QuestIcon" to="." method="_on_quest_icon_gui_input"]

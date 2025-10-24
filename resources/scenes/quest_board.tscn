@@ -7,7 +7,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_3ceph"]
 font = ExtResource("1_6ear3")
-font_size = 64
+font_size = 128
 
 [sub_resource type="LabelSettings" id="LabelSettings_8r2i5"]
 font_size = 32
@@ -17,14 +17,16 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 1680.0
+offset_bottom = 920.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wik8w")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
-offset_right = 1680.0
-offset_bottom = 920.0
+offset_right = 3360.0
+offset_bottom = 1840.0
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer"]
 layout_mode = 2
@@ -35,6 +37,7 @@ layout_mode = 2
 theme_override_constants/margin_top = 50
 
 [node name="QuestBoardContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/separation = 10

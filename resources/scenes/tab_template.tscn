@@ -9,11 +9,13 @@ bg_color = Color(0.282353, 0.282353, 0.282353, 0.345098)
 
 [sub_resource type="LabelSettings" id="LabelSettings_rafe5"]
 font = ExtResource("2_j15n0")
-font_size = 20
+font_size = 32
 
 [node name="Tab_Template" type="MarginContainer"]
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_bottom = 10
+offset_right = 290.0
+offset_bottom = 90.0
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 5
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 2
@@ -33,7 +35,7 @@ columns = 3
 [node name="ProgramIcon" type="TextureRect" parent="PanelContainer/MarginContainer/GridContainer"]
 unique_name_in_owner = true
 texture_filter = 1
-custom_minimum_size = Vector2(0, 35)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 texture = ExtResource("1_ltbd2")
 expand_mode = 2
@@ -48,8 +50,9 @@ label_settings = SubResource("LabelSettings_rafe5")
 
 [node name="KillTab" type="TextureRect" parent="PanelContainer/MarginContainer/GridContainer"]
 texture_filter = 1
+custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("3_bby8b")
-stretch_mode = 2
+expand_mode = 2

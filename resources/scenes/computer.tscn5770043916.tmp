@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dkqye680r2mb5" path="res://textures/folder.png" id="2_63uu6"]
 [ext_resource type="Texture2D" uid="uid://bnk6jiggprejo" path="res://textures/power-button.png" id="2_ge7yw"]
 [ext_resource type="Texture2D" uid="uid://bf52qhknrsxp5" path="res://textures/shodown.png" id="3_ge7yw"]
-[ext_resource type="Script" uid="uid://dhcxxbt72sqj5" path="res://resources/scripts/task_bar.gd" id="4_vuniv"]
+[ext_resource type="Script" uid="uid://dhcxxbt72sqj5" path="res://resources/scenes/task_bar.gd" id="4_vuniv"]
 [ext_resource type="Script" uid="uid://bo1tncypk0iy5" path="res://resources/scripts/state_node.gd" id="5_gjdp3"]
 [ext_resource type="Script" uid="uid://b535sar60upeq" path="res://resources/scripts/desktop_node.gd" id="6_pp8s3"]
 [ext_resource type="Script" uid="uid://bm6a433c1qsau" path="res://resources/scripts/sho_down_state.gd" id="7_7g2y8"]

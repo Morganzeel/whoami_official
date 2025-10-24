@@ -8,11 +8,11 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_38mwx"]
 font = ExtResource("2_7tuya")
-font_size = 32
+font_size = 64
 
 [sub_resource type="LabelSettings" id="LabelSettings_2xphb"]
 font = ExtResource("2_7tuya")
-font_size = 32
+font_size = 64
 
 [node name="MarginContainer" type="MarginContainer"]
 theme_override_constants/margin_left = 40
@@ -27,9 +27,9 @@ layout_mode = 2
 theme_override_constants/separation = 20
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(256, 256)
 layout_mode = 2
 texture = ExtResource("1_70m4m")
-stretch_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -42,10 +42,12 @@ text = "Target: Smthsmth.nnet"
 label_settings = SubResource("LabelSettings_2xphb")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(256, 256)
 layout_mode = 2
 size_flags_horizontal = 10
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(256, 256)
 layout_mode = 2
 texture = ExtResource("3_731ll")
 script = ExtResource("5_q823b")
